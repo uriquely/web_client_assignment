@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY Main</title>
+    <style>
+        #copy {
+            text-align: center;
+            margin: 0 auto;
+            padding: 5% 0%;
+        }
+        footer {
+            background-color: skyblue;
+            height: 5%;
+            margin: 0% 2%;
+        }
+
+        section {
+            background-color: gray;
+            height: 600px;
+            margin: 0% 2%;
+        }
+
+        header {
+            height: 10%;
+            padding: 1%;
+            margin: 0% 2%;
+        }
+
+        nav {
+        margin-top: 10%;
+        }
+
+        #menu {
+        list-style: none;
+        padding-left: 0;
+        margin: 0 auto;
+        }
+
+        #menu li a {
+            text-decoration: none; /* 언더라인 제거 */
+            font-family: sans-serif;
+        }
+
+        #menu li{
+            float: left; /* 가로로 배치 */
+            margin-left: 10%;
+        }
+
+        #login {
+            width: 25%;
+            float: right;
+            margin: 0% -5%;
+        }
+
+        #myMain {
+            width: 50%;
+            float: left;
+            text-align: center;
+            margin-top: 2%;
+        }
+
+        .img-container img {
+            width: 10%;
+            float: left;
+            margin-right: 8%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="img-container">
+        <img src="/resources/img/kh.jpg" alt="">
+        </div><br>
+
+        <h1 id="myMain">MYMain</h1>
+        <form id="login" action="">
+            <table id="table">
+                <tr>
+                    <td><label for="userId">아이디</label></td>
+                    <td><input type="text" name="userId" id="userId"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">패스워드</label></td>
+                    <td><input type="password" name="password" id="password"></td>
+                </tr>
+            </table>
+                <input type="submit" value="로그인">
+                <input type="submit" value="취소">
+        </form>
+
+        <nav>
+            <ul id="menu">
+                <li><a href="#">메인</a></li>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">자유게시판</a></li>
+                <li><a href="#">갤러리</a></li>
+                <li><a href="#">회원관리</a></li>
+                <li><a href="#">채팅하기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>content내용</h1>
+    </section>
+    <footer><p id="copy">Copyright © 1998-2019 KH Information Educational Institute All Right Reserved</p></footer>
+    
+</body>
+</html>
