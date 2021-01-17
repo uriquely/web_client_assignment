@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제1</title>
+</head>
+<body>
+    <h1>실습문제 1</h1>
+
+    <form action="">
+        <label for="buyer">구매자 : </label>
+        <input type="text" name="buyer" id="buyer" value="김동현">
+        <p></p>
+        <label for="productName">상품명 : </label>
+        <input type="text" name="productName" id="productName" value="아이폰">
+        <p></p>
+        <label for="price">가격 : </label>
+        <input type="number" name="price" id="price" value="100">만원<br>
+        <p></p>
+        <input type="button" value="입력값 출력하기" onclick="test1();">
+    </form>
+    <p></p>
+    <div 
+        id="area"
+        style="width: 350px; 
+        height: 150px;
+        border: 1px solid gainsboro;
+        background-color: lemonchiffon">
+    </div>
+
+    <script>
+        function test1() {
+            var buyer = document.getElementById("buyer");
+            // console.log(buyer.value); 콘솔 확인용
+            // console.log(typeof buyer); type : object
+            var productName = document.getElementById("productName");
+            // console.log(productName.value);
+            var price = document.getElementById("price");
+            // console.log(price.value);
+
+            area.innerHTML = "구입자 : " + buyer.value + "<br>" 
+                            + "구입상품 : " + productName.value + "<br>"
+                            + "구매가격 : " + price.value;
+
+        }
+    </script>
+
+</body>
+</html>

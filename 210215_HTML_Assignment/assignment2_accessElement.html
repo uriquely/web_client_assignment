@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제2</title>
+</head>
+<body>
+
+    <h2>className 제어하기</h2>
+    <table id="tbl">
+        <tr>
+            <th colspan="3">수강신청</th>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <!-- 인라인속성에 사용된 this는 태그객체 자신을 가리킨다. -->
+                <!-- value 기본값은 on, 1 -->
+                <input type="checkbox" id="chkAll" onchange="checkAllOrNone(this);">
+                <label for="chkAll">모두선택/해제</label>
+            </td>
+        </tr>
+        <tr>
+            <!-- (td>input:checkbox[name=subject]+label)*3 -->
+            <!-- 메소드내부에 this를 주어서 어떤 걸 선택했는 지 알 수 있도록 -->
+            <!-- 클래스네임은 다 문자열로 처리 -->
+            <td class="font"><input type="checkbox" name="subject" id="kor" onchange="checkSubject(this);"><label for="kor">국어</label></td>
+            <td class="font"><input type="checkbox" name="subject" id="eng" onchange="checkSubject(this);"><label for="eng">영어</label></td>
+            <td class="font"><input type="checkbox" name="subject" id="math" onchange="checkSubject(this);"><label for="math">수학</label></td>
+        </tr>
+    </table>
+
+    <style>
+    table#tbl {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    table#tbl th, table#tbl td {
+        border: 1px solid #000;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .subject-checked {
+        background-color: gold;
+        color: #FFF;
+    }
+
+    /* 이렇게 폰트를 부여해주면 체크박스를 해제할 때 글자가 풀려버림 */
+    .font {
+        font-family: "궁서체";
+    }
+    </style>
+
+    <script>
+
+    function checkSubject(subject) {
+
+        //부모td에 클래스값 부여하기
+        console.log(subject);
+
+        //부모td 가져오기
+        var parentTd = subject.parentElement;
+        console.log(parentTd);
+
+        //체크여부에 따라 클래스값 부여/회수
+        if(subject.checked)
+            parentTd.className = 'subject-checked font';
+        else
+            parentTd.className = 'font';
+
+        //개별체크박스 전체선택여부확인후 #checkAll에 반영하기
+        var subjects = document.getElementsByName("subject");
+        var cnt = 0;
+        for(var i = 0; i < subjects.length; i++) {
+            if(subjects[i].checked) //만약에  subjects[i]가 체크된 상태라면?
+                cnt++; //cnt++를 해주자
+        }
+        var chkAll = document.getElementById("chkAll");
+        chkAll.checked = (cnt == subjects.length);
+    }
+    
+    function checkAllOrNone(chkAll) {
+        var subjects = document.getElementsByName("subject");
+
+        console.log(chkAll);
+
+        for(var i = 0; i < subjects.length; i++) {
+            //1.개별체크박스제어
+            subjects[i].checked = chkAll.checked;
+            //2.체크박스별 부모 td 클래스값 제어
+            subjects[i].parentElement.className = chkAll.checked ? 'subject-checked font' : 'font';
+        }
+
+        /*과제...classList를 공부해서 적용*/
+    }
+    </script>
+
+    <p>@실습문제 : classList속성을 이용해서 코드를 개선하세요.</p>
+    <p>수업 후 수정 재업로드 예정</p>
+</body>
+</html>
